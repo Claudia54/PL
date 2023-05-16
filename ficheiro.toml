@@ -19,9 +19,9 @@ enabled = true
 [servers.beta]
   ip = "10.0.0.2"
   dc = "eqdc10"
+
   
 # Line breaks are OK when inside arrays
 hosts = [
 "alpha",
 "omega" ]
-frequentem
