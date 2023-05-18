@@ -2,7 +2,9 @@ import ply.lex as lex
 
 # Definição dos tokens
 tokens = (
-    'SECTIONTITLE',
+    'PONTO',
+    'APAR',
+    'FPAR',
     'KEY',
     'VALUE',
     'DELIMITER',
@@ -10,14 +12,18 @@ tokens = (
     'LISTVALUE')
 
 # Expressões regulares para os tokens
-t_SECTIONTITLE = r'\[[a-zA-Z_.:]+\]'
+t_PONTO = r'\.'
+t_APAR = r'\['
+t_FPAR = r'\]'
 t_KEY = r'[a-zA-Z_][a-zA-Z0-9_]*'
 t_DELIMITER = r'[=]'
 t_COMMENT = r'\#[^\n]*'
 
+
+
 def t_LISTVALUE(t):
-    r'(?<=[=]\s)\[\s*([^,\]]*)*(,[\n]?\s*([^,\]]*)*)?\]'
-    return t
+   r'(?<=[=]\s)\[\s*([^,\]]*)*(,[\n]?\s*([^,\]]*)*)?\]'
+   return t
 
 def t_VALUE(t):
   r'(?<=[=]\s).+'
@@ -58,9 +64,6 @@ hosts = [
 "alpha",
 "omega" ]
 """)
+#while tok := lexer.token():
+   # print(tok)
 
-while True:
-    tok = lexer.token()
-    if not tok:
-        break  # Não há mais tokens
-    #print(tok)

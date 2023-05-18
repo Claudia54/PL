@@ -1,37 +1,51 @@
-import ply.yacc as yacc
 
+import ply.yacc as yacc
+import json 
 from tomllex import tokens
 
 
-def p_tabela(p):
+def p_toml(p):
     'toml : title sections '
-    #p[0]= '{\n'+p[1]+ '\n'+ p[2] +'\n}'
-    #print(p[0])
+    p[0] ='{\n'+ p[1] + "\n"+ p[2] + '\n}'
     
+
+
+
+def p_tabletitle(p):
+    'tabletitle : APAR KEY FPAR'
+    p[0]= p[2]
+   
+    
+                  
+                  
+#def p_titulo(p):
+    #'''titulo : KEY
+              #| titulo PONTO KEY'''
 
 def p_title(p):
     'title : KEY DELIMITER VALUE'
-    p[0]= p[1]+':'+p[3] +','
-    print(p[0])
+    p[0]= '"'+p[1]+'"'+':'+p[3] 
+    
     
 
 def p_sections(p):
     '''sections : sections section
                 | section'''
-    if (len==2) :
-        p[0] = p[1]+p[2]
-       # print(p[0])
+   
+    if (len(p)==2) :
+        p[0] = p[1]
 
-    if (len==3):
-        p[0] = p[1]+p[2]+p[3]
-        #print(p[0])
+    if (len(p)==3):
+        p[0] = p[1] + ',' + p[2]
+     
 
     
 
 def p_section(p):
-    '''section : SECTIONTITLE conteudo'''
-    p[0]=p[1]+':{\n'+p[2] +'}'
-    print(p[0])
+    '''section : tabletitle conteudo'''
+  
+    p[0]='"'+p[1]+'"'+':{\n'+p[2] +'}'
+    
     
 
  
@@ -41,14 +55,15 @@ def p_conteudo(p):
                 | KEY DELIMITER VALUE
                 | section'''
     
+    
     if len(p) == 2 : 
-        p[0]=p[1]
-    if len(p)== 3 :
-        p[0]=p[1]
+        p[0] = p[1]
+    if len(p) == 3 :
+        p[0] = p[1] + p[2] 
     if len(p) == 4 :
-        p[0] = p[1]+':'+p[3] +',' +'\n'
-    if len(p) ==5 :
-        p[0] = p[1]+p[2]+':'+p[4] +',\n' 
+        p[0] = '"' + p[1] + '"' + ':' + p[3] +'\n'
+    if len(p) == 5 :
+        p[0] = p[1] + ',' + '"' + p[2] + '"' + ':' + p[4] +'\n' 
     #print(p[0])
 
 def p_error(p):
@@ -56,6 +71,7 @@ def p_error(p):
 
 parser = yacc.yacc()
 
+'''
 texto_input = """
 title = "TOML Example"
 
@@ -71,19 +87,27 @@ connection_max = 5000
 enabled = true
 
 [servers]
-[servers.alpha]
+[serversalpha]
   ip = "10.0.0.1"
   dc = "eqdc10"
 
-[servers.beta]
+[serversbeta]
   ip = "10.0.0.2"
   dc = "eqdc10"
 
   
 """
+'''
 
- 
-csv = parser.parse(texto_input)
+
+with open('tabela.toml', 'r') as arquivo: 
+    conteudo = arquivo.read()
+
+
+#dados = tomllib.loads(conteudo)
+
+data = parser.parse(conteudo)
+print(data)
 with open("tabela.json", "w") as f:
-    f.write(csv)
+    json.dump(data,f,indent=6)
     
