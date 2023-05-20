@@ -9,10 +9,11 @@ tokens = (
     'VALUE',
     'DELIMITER',
     'COMMENT',
-    'LISTVALUE')
+    'LISTVALUE',
+    )
 
 # Expressões regulares para os tokens
-t_PONTO = r'\.'
+t_PONTO = r'\.[^\[\]\s]+(?=\])'
 t_APAR = r'\['
 t_FPAR = r'\]'
 t_KEY = r'[a-zA-Z_][a-zA-Z0-9_]*'
@@ -65,5 +66,5 @@ hosts = [
 "omega" ]
 """)
 #while tok := lexer.token():
-   # print(tok)
+    #print(tok)
 
