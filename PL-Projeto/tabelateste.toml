@@ -2,38 +2,38 @@ title = "Treino Teste"
 
 subtitle = " Processamento de Linguagens"
 
-authors = "Cláudia, Paulo, Tiago" 
+authors = "Claudia, Paulo, Tiago" 
 
 clube = "Futebol Clube do Porto"
 
 [jogadores]
 [jogadores.principais.guardaredes]
-nome = "Agustín Marchesín"
-nome = "Diogo Costa"
+"Agustin Marchesin" = nome 
+"Diogo Costa" = "nome"
+
 
 
 [jogadores.principais.lateral]
-[lateral.Direito]
-nome = "Wilson Manafá"
+[jogadores.principais.lateral.Direito]
+"Wilson Manafa" = nome
 
 
-[lateral.Esquerdo]
-nome = "Zaidu Sanusi"
+[jogadores.principais.lateral.Esquerdo]
+"Zaidu Sanusi" = nome
 
 
 [jogadores.principais.Defesa]
-nome = "Chancel Mbemba"
-nome = "Pepe"
+"Chancel Mbemba" = nome
+"Pepe" = nome
 
-[jogadores.principais.meio-campo]
-nome = "Marko Grujić"
-nome = "Meio-Campista"
-nome= "Otavio Monteiro"
+[jogadores.principais.meiocampo]
+"Marko Grujic" = nome
+"Otavio Monteiro" = nome
 
 [jogadores.principais.atacante]
-nome = "Mehdi Taremi"
-nome = "Evanilson"
-nome = "Toni Martínez"
+"Mehdi Taremi" = nome
+"Evanilson" = nome 
+"Toni Martinez" = nome 
 
 
 
@@ -43,6 +43,7 @@ nome = "listasocios"
 cores = [azul, verde, vermelho]
 data = 26-05-2023
 horas = 12:50:00
+15 = "numero socios"
 
 
 [socios]
@@ -51,9 +52,9 @@ horas = 12:50:00
 nome = "Maria das Cruzes Azevedo"
 idade = 45
 email = "Mariacruz@example.com"
-categoria = "Sócio"
+categoria = "Socio"
 cota1 = 300
-dataadesao = 2022-04-23
+dataadesao = 1979-05-27T00:32:00.999999
 
 [socios.2]
 nome = "Ana Clara Santos"
@@ -67,7 +68,7 @@ dataadesao = 2023-01-15
 nome = "Pedro Sousa"
 idade = 52
 email = "pedro.sousa@example.com"
-categoria = "Sócio"
+categoria = "Socio"
 cota3 = 300
 dataadesao = 2021-11-02
 
@@ -83,7 +84,7 @@ dataadesao = 2022-09-18
 nome = "Tiago Ferreira"
 idade = 29
 email = "tiago.ferreira@example.com"
-categoria = "Sócio"
+categoria = "Socio"
 cota5 = 300
 dataadesao = 2023-03-07
 
@@ -99,7 +100,7 @@ dataadesao = 2022-06-30
 nome = "Ricardo Lima"
 idade = 33
 email = "ricardo.lima@example.com"
-categoria = "Sócio"
+categoria = "Socio"
 cota7 = 300
 dataadesao = 2021-08-10
 
@@ -113,16 +114,17 @@ dataadesao = 2023-02-11
 
 [socios.9]
 nome = "Hugo Fernandes"
+outrosocio.filho = "Carlos"
 idade = 36
 email = "hugo.fernandes@example.com"
-categoria = "Sócio"
-cota9 = 300
+categoria = "Socio"
+cota9 = [300,100]
 dataadesao = 2022-10-25
 
 [socios.10]
-nome = "Inês Santos"
+nome = "Maria Santos"
 idade = 27
-email = "ines.santos@example.com"
+email = "maria.santos@example.com"
 categoria = "Adepto"
 cota10 = 150
 dataadesao = 2023-04-05
@@ -131,7 +133,7 @@ dataadesao = 2023-04-05
 nome = "Gustavo Costa"
 idade = 39
 email = "gustavo.costa@example.com"
-categoria = "Sócio"
+categoria = "Socio"
 cota11 = 300
 dataadesao = 2021-12-13
 
@@ -144,10 +146,10 @@ cota12 = 150
 dataadesao = 2022-07-22
 
 [socios.13]
-nome = "Luís Oliveira"
+nome = "Francisco Oliveira"
 idade = 31
-email = "luis.oliveira@example.com"
-categoria = "Sócio"
+email = "francisco.oliveira@example.com"
+categoria = "Socio"
 cota13 = 300
 dataadesao = 2023-05-10
 
@@ -156,7 +158,7 @@ dataadesao = 2023-05-10
 nome = "Maria das Cruzes Azevedo"
 idade = 45
 email = "Mariacruz@example.com"
-categoria = "Sócio"
+categoria = "Socio"
 300 = "cota1"
 dataadesao = 2022-04-23
 
@@ -167,6 +169,19 @@ dataadesao = 2022-04-23
 nome = "Miguel Pereira"
 idade = 34
 email = "miguel.pereira@example.com"
-categoria = "Sócio"
-cota14 = 300
+categoria = "Socio"
+cota14 = [300,100]
 dataadesao = 2022-08-28
+pagamento = "valido"
+
+
+[[Pagamentos.pendentes]]
+nome= "Carlos Almeida"
+valor = 10.0
+
+[[Pagamentos.pendentes]]
+nome= "Miguel Pereira"
+valor = 120
+3.20 = "secao"
+
+[[Pagamentos.pendentes]]

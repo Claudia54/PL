@@ -12,12 +12,14 @@ tokens = (
     )
 
 # Expressões regulares para os tokens
-#t_PONTO = r'\.(?=.*\])|\[(?=.\])(.*\.)?'
 t_APAR = r'\['
 t_FPAR = r'\]'
-t_KEY = r'"?[a-zA-Z0-9_][a-zA-Z0-9_\.,]*"?'
+t_KEY = r'([a-zA-Z0-9_][a-zA-Z0-9_\.,]*) | "[\w\.,]*\s*[\w\.,]*"'
 t_DELIMITER = r'[=]'
-t_COMMENT = r'\#[^\n]*'
+
+def t_COMMENT(t):
+    r'\#[^\n]*'
+    pass
 
 def t_VALUE(t):
   r'(?<=[=]\s).+'
@@ -40,7 +42,7 @@ def t_error(t):
 # Criar o analisador léxico
 lexer = lex.lex()
 
-with open('tabela.toml', 'r') as arquivo: 
+with open('tabelateste.toml', 'r') as arquivo: 
     conteudo = arquivo.read()
 
 lexer.input(conteudo)

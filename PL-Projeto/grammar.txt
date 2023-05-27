@@ -1,0 +1,18 @@
+'toml : titles sections '
+
+'''titles : title
+          | titles title'''
+
+'''title : KEY DELIMITER VALUE'''
+
+'''sections : sections section
+            | section'''
+
+'''section : tabletitle conteudo
+           | tabletitle'''
+
+'''tabletitle : APAR KEY FPAR
+              | APAR APAR KEY FPAR FPAR'''
+
+'''conteudo : conteudo KEY DELIMITER VALUE 
+            | KEY DELIMITER VALUE '''
