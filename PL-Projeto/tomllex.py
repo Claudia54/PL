@@ -7,8 +7,7 @@ tokens = (
     'KEY',
     'VALUE',
     'DELIMITER',
-    'COMMENT',
-    'LISTVALUE',
+    'COMMENT'
     )
 
 # Expressões regulares para os tokens
@@ -41,8 +40,6 @@ with open('tabelateste.toml', 'r') as arquivo:
 
 lexer.input(conteudo)
 
-while tok := lexer.token():
-    print(tok)
 
 
 
