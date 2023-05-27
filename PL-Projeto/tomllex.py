@@ -25,12 +25,6 @@ def t_VALUE(t):
   r'(?<=[=]\s).+'
   return t
 
-#def t_LISTVALUE(t):
-#   r'(?<=[=]\s)\[\s*([^,\]]*)*(,[\n]?\s*([^,\]]*)*)?\]'
- #  return t
-
-
-
 # Ignorar espaços em branco e quebras de linha
 t_ignore = ' \t\n'
 

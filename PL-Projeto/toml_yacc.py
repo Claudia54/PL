@@ -108,14 +108,8 @@ def p_section(p):
     
         array.append(p[1])    
     
-    
     p[0] = p[1]
     
-   # print(p[0])
-
-
-
- 
 def p_conteudo(p):
     '''conteudo : conteudo KEY DELIMITER VALUE 
                 | KEY DELIMITER VALUE '''
@@ -124,9 +118,6 @@ def p_conteudo(p):
         p[0] = p[1] + '::::' + p[3]
     if len(p) == 5 :
         p[0] = p[1] + ';;;;' + p[2] + '::::' + p[4]
-   # print(p[0])
-
-
 
 def p_error(p):
     print("Erro sintático!")
