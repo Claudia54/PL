@@ -4,39 +4,41 @@ Unused terminals:
 
     COMMENT
     LISTVALUE
-    PONTO
 
 Grammar
 
 Rule 0     S' -> toml
-Rule 1     toml -> title sections
-Rule 2     tabletitle -> APAR KEY FPAR
-Rule 3     title -> KEY DELIMITER VALUE
-Rule 4     sections -> sections section
-Rule 5     sections -> section
-Rule 6     section -> tabletitle conteudo
-Rule 7     conteudo -> conteudo KEY DELIMITER VALUE
-Rule 8     conteudo -> KEY DELIMITER VALUE
+Rule 1     toml -> titles sections
+Rule 2     titles -> title
+Rule 3     titles -> titles title
+Rule 4     title -> KEY DELIMITER VALUE
+Rule 5     tabletitle -> APAR KEY FPAR
+Rule 6     sections -> sections section
+Rule 7     sections -> section
+Rule 8     section -> tabletitle conteudo
+Rule 9     section -> tabletitle
+Rule 10    conteudo -> conteudo KEY DELIMITER VALUE
+Rule 11    conteudo -> KEY DELIMITER VALUE
 
 Terminals, with rules where they appear
 
-APAR                 : 2
+APAR                 : 5
 COMMENT              : 
-DELIMITER            : 3 7 8
-FPAR                 : 2
-KEY                  : 2 3 7 8
+DELIMITER            : 4 10 11
+FPAR                 : 5
+KEY                  : 4 5 10 11
 LISTVALUE            : 
-PONTO                : 
-VALUE                : 3 7 8
+VALUE                : 4 10 11
 error                : 
 
 Nonterminals, with rules where they appear
 
-conteudo             : 6 7
-section              : 4 5
-sections             : 1 4
-tabletitle           : 6
-title                : 1
+conteudo             : 8 10
+section              : 6 7
+sections             : 1 6
+tabletitle           : 8 9
+title                : 2 3
+titles               : 1 3
 toml                 : 0
 
 Parsing method: LALR
@@ -44,13 +46,16 @@ Parsing method: LALR
 state 0
 
     (0) S' -> . toml
-    (1) toml -> . title sections
-    (3) title -> . KEY DELIMITER VALUE
+    (1) toml -> . titles sections
+    (2) titles -> . title
+    (3) titles -> . titles title
+    (4) title -> . KEY DELIMITER VALUE
 
-    KEY             shift and go to state 3
+    KEY             shift and go to state 4
 
     toml                           shift and go to state 1
-    title                          shift and go to state 2
+    titles                         shift and go to state 2
+    title                          shift and go to state 3
 
 state 1
 
@@ -60,151 +65,179 @@ state 1
 
 state 2
 
-    (1) toml -> title . sections
-    (4) sections -> . sections section
-    (5) sections -> . section
-    (6) section -> . tabletitle conteudo
-    (2) tabletitle -> . APAR KEY FPAR
+    (1) toml -> titles . sections
+    (3) titles -> titles . title
+    (6) sections -> . sections section
+    (7) sections -> . section
+    (4) title -> . KEY DELIMITER VALUE
+    (8) section -> . tabletitle conteudo
+    (9) section -> . tabletitle
+    (5) tabletitle -> . APAR KEY FPAR
 
-    APAR            shift and go to state 7
+    KEY             shift and go to state 4
+    APAR            shift and go to state 9
 
-    sections                       shift and go to state 4
-    section                        shift and go to state 5
-    tabletitle                     shift and go to state 6
+    sections                       shift and go to state 5
+    title                          shift and go to state 6
+    section                        shift and go to state 7
+    tabletitle                     shift and go to state 8
 
 state 3
 
-    (3) title -> KEY . DELIMITER VALUE
+    (2) titles -> title .
 
-    DELIMITER       shift and go to state 8
+    KEY             reduce using rule 2 (titles -> title .)
+    APAR            reduce using rule 2 (titles -> title .)
 
 
 state 4
 
-    (1) toml -> title sections .
-    (4) sections -> sections . section
-    (6) section -> . tabletitle conteudo
-    (2) tabletitle -> . APAR KEY FPAR
+    (4) title -> KEY . DELIMITER VALUE
 
-    $end            reduce using rule 1 (toml -> title sections .)
-    APAR            shift and go to state 7
+    DELIMITER       shift and go to state 10
 
-    section                        shift and go to state 9
-    tabletitle                     shift and go to state 6
 
 state 5
 
-    (5) sections -> section .
+    (1) toml -> titles sections .
+    (6) sections -> sections . section
+    (8) section -> . tabletitle conteudo
+    (9) section -> . tabletitle
+    (5) tabletitle -> . APAR KEY FPAR
 
-    APAR            reduce using rule 5 (sections -> section .)
-    $end            reduce using rule 5 (sections -> section .)
+    $end            reduce using rule 1 (toml -> titles sections .)
+    APAR            shift and go to state 9
 
+    section                        shift and go to state 11
+    tabletitle                     shift and go to state 8
 
 state 6
 
-    (6) section -> tabletitle . conteudo
-    (7) conteudo -> . conteudo KEY DELIMITER VALUE
-    (8) conteudo -> . KEY DELIMITER VALUE
+    (3) titles -> titles title .
 
-    KEY             shift and go to state 11
+    KEY             reduce using rule 3 (titles -> titles title .)
+    APAR            reduce using rule 3 (titles -> titles title .)
 
-    conteudo                       shift and go to state 10
 
 state 7
 
-    (2) tabletitle -> APAR . KEY FPAR
+    (7) sections -> section .
 
-    KEY             shift and go to state 12
+    APAR            reduce using rule 7 (sections -> section .)
+    $end            reduce using rule 7 (sections -> section .)
 
 
 state 8
 
-    (3) title -> KEY DELIMITER . VALUE
+    (8) section -> tabletitle . conteudo
+    (9) section -> tabletitle .
+    (10) conteudo -> . conteudo KEY DELIMITER VALUE
+    (11) conteudo -> . KEY DELIMITER VALUE
 
-    VALUE           shift and go to state 13
+    APAR            reduce using rule 9 (section -> tabletitle .)
+    $end            reduce using rule 9 (section -> tabletitle .)
+    KEY             shift and go to state 13
 
+    conteudo                       shift and go to state 12
 
 state 9
 
-    (4) sections -> sections section .
+    (5) tabletitle -> APAR . KEY FPAR
 
-    APAR            reduce using rule 4 (sections -> sections section .)
-    $end            reduce using rule 4 (sections -> sections section .)
+    KEY             shift and go to state 14
 
 
 state 10
 
-    (6) section -> tabletitle conteudo .
-    (7) conteudo -> conteudo . KEY DELIMITER VALUE
+    (4) title -> KEY DELIMITER . VALUE
 
-    APAR            reduce using rule 6 (section -> tabletitle conteudo .)
-    $end            reduce using rule 6 (section -> tabletitle conteudo .)
-    KEY             shift and go to state 14
+    VALUE           shift and go to state 15
 
 
 state 11
 
-    (8) conteudo -> KEY . DELIMITER VALUE
+    (6) sections -> sections section .
 
-    DELIMITER       shift and go to state 15
+    APAR            reduce using rule 6 (sections -> sections section .)
+    $end            reduce using rule 6 (sections -> sections section .)
 
 
 state 12
 
-    (2) tabletitle -> APAR KEY . FPAR
+    (8) section -> tabletitle conteudo .
+    (10) conteudo -> conteudo . KEY DELIMITER VALUE
 
-    FPAR            shift and go to state 16
+    APAR            reduce using rule 8 (section -> tabletitle conteudo .)
+    $end            reduce using rule 8 (section -> tabletitle conteudo .)
+    KEY             shift and go to state 16
 
 
 state 13
 
-    (3) title -> KEY DELIMITER VALUE .
-
-    APAR            reduce using rule 3 (title -> KEY DELIMITER VALUE .)
-
-
-state 14
-
-    (7) conteudo -> conteudo KEY . DELIMITER VALUE
+    (11) conteudo -> KEY . DELIMITER VALUE
 
     DELIMITER       shift and go to state 17
 
 
+state 14
+
+    (5) tabletitle -> APAR KEY . FPAR
+
+    FPAR            shift and go to state 18
+
+
 state 15
 
-    (8) conteudo -> KEY DELIMITER . VALUE
+    (4) title -> KEY DELIMITER VALUE .
 
-    VALUE           shift and go to state 18
+    KEY             reduce using rule 4 (title -> KEY DELIMITER VALUE .)
+    APAR            reduce using rule 4 (title -> KEY DELIMITER VALUE .)
 
 
 state 16
 
-    (2) tabletitle -> APAR KEY FPAR .
+    (10) conteudo -> conteudo KEY . DELIMITER VALUE
 
-    KEY             reduce using rule 2 (tabletitle -> APAR KEY FPAR .)
+    DELIMITER       shift and go to state 19
 
 
 state 17
 
-    (7) conteudo -> conteudo KEY DELIMITER . VALUE
+    (11) conteudo -> KEY DELIMITER . VALUE
 
-    VALUE           shift and go to state 19
+    VALUE           shift and go to state 20
 
 
 state 18
 
-    (8) conteudo -> KEY DELIMITER VALUE .
+    (5) tabletitle -> APAR KEY FPAR .
 
-    KEY             reduce using rule 8 (conteudo -> KEY DELIMITER VALUE .)
-    APAR            reduce using rule 8 (conteudo -> KEY DELIMITER VALUE .)
-    $end            reduce using rule 8 (conteudo -> KEY DELIMITER VALUE .)
+    KEY             reduce using rule 5 (tabletitle -> APAR KEY FPAR .)
+    APAR            reduce using rule 5 (tabletitle -> APAR KEY FPAR .)
+    $end            reduce using rule 5 (tabletitle -> APAR KEY FPAR .)
 
 
 state 19
 
-    (7) conteudo -> conteudo KEY DELIMITER VALUE .
+    (10) conteudo -> conteudo KEY DELIMITER . VALUE
 
-    KEY             reduce using rule 7 (conteudo -> conteudo KEY DELIMITER VALUE .)
-    APAR            reduce using rule 7 (conteudo -> conteudo KEY DELIMITER VALUE .)
-    $end            reduce using rule 7 (conteudo -> conteudo KEY DELIMITER VALUE .)
+    VALUE           shift and go to state 21
+
+
+state 20
+
+    (11) conteudo -> KEY DELIMITER VALUE .
+
+    KEY             reduce using rule 11 (conteudo -> KEY DELIMITER VALUE .)
+    APAR            reduce using rule 11 (conteudo -> KEY DELIMITER VALUE .)
+    $end            reduce using rule 11 (conteudo -> KEY DELIMITER VALUE .)
+
+
+state 21
+
+    (10) conteudo -> conteudo KEY DELIMITER VALUE .
+
+    KEY             reduce using rule 10 (conteudo -> conteudo KEY DELIMITER VALUE .)
+    APAR            reduce using rule 10 (conteudo -> conteudo KEY DELIMITER VALUE .)
+    $end            reduce using rule 10 (conteudo -> conteudo KEY DELIMITER VALUE .)
 

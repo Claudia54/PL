@@ -1,0 +1,32 @@
+{
+      "title": "\"Treino Teste\"",
+      "subtitle": "\" Processamento de Linguagens\"",
+      "authors": "\"Cl\u00e1udia, Paulo, Tiago\" ",
+      "teste1": {
+            "name": "\"Aaa\"",
+            "data": "2022-04-23"
+      },
+      "teste2": {
+            "nome": "\"teste2\"",
+            "cores": "[azul, verde, vermelho]",
+            "numero": "3"
+      },
+      "teste3": {
+            "teste31": {
+                  "ip": "\"10.0.0.1\"",
+                  "3,14": "\"pi\""
+            },
+            "teste32": {
+                  "ip": "\"10.0.0.2\"",
+                  "dc": "\"eqdc10\""
+            }
+      },
+      "teste4": {
+            "teste41": {
+                  "teste42": {
+                        "nome": "\"teste\"",
+                        "\"novo\"": "true "
+                  }
+            }
+      }
+}

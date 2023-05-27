@@ -4,23 +4,49 @@ import json
 from tomllex import tokens
 
 
+
+jsonn= {}
+
 def p_toml(p):
     'toml : title sections '
     p[0] ='{\n'+ p[1] + "\n"+ p[2] + '\n}'
     
 
 
-
-def p_tabletitle(p):
-    'tabletitle : APAR KEY FPAR'
-    p[0]= p[2]
+#def p_tabletitle(p):
+#    'tabletitle : APAR KEY FPAR'
+#    p[0]= p[2]
    
-    
-                  
+     
                   
 #def p_titulo(p):
     #'''titulo : KEY
               #| titulo PONTO KEY'''
+    
+
+
+def p_tabletitle(p):
+    'tabletitle : APAR titulosection FPAR '
+    p[0] = p[2] 
+
+
+
+count=0
+
+def p_titulosection(p):
+    '''titulosection : KEY
+                    | titulosection PONTO KEY'''
+   
+    
+    if (len==2):
+        p[0] =p[1] +":{\n"
+    
+    if (len==4):
+        p[0] =p[1] + p[2] +":{\n "
+        
+
+
+
 
 def p_title(p):
     'title : KEY DELIMITER VALUE'
@@ -43,16 +69,16 @@ def p_sections(p):
 
 def p_section(p):
     '''section : tabletitle conteudo'''
-  
-    p[0]='"'+p[1]+'"'+':{\n'+p[2] +'}'
-    
-    
+    print(p[1])
+    p[0]='"'+p[1]+'"'+':{\n'+p[2]
+
+
 
  
 def p_conteudo(p):
     '''conteudo : conteudo KEY DELIMITER VALUE 
-                | KEY DELIMITER VALUE'''
-    
+                | KEY DELIMITER VALUE
+                | KEY DELIMITER LISTVALUE '''
     
     #if len(p) == 2 : 
        # p[0] = p[1]
@@ -64,38 +90,12 @@ def p_conteudo(p):
         p[0] = p[1] + ',' + '"' + p[2] + '"' + ':' + p[4] +'\n' 
     #print(p[0])
 
+
+
 def p_error(p):
     print("Erro sintático!")
 
 parser = yacc.yacc()
-
-'''
-texto_input = """
-title = "TOML Example"
-
-[owner]
-name = "Tom Preston-Werner"
-date = 2010-04-23
-time = 21:30:00
-
-[database]
-server = "192.168.1.1"
-ports = [ 8001, 8001, 8002 ]
-connection_max = 5000
-enabled = true
-
-[servers]
-[serversalpha]
-  ip = "10.0.0.1"
-  dc = "eqdc10"
-
-[serversbeta]
-  ip = "10.0.0.2"
-  dc = "eqdc10"
-
-  
-"""
-'''
 
 
 with open('tabela.toml', 'r') as arquivo: 

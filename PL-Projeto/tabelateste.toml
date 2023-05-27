@@ -1,0 +1,172 @@
+title = "Treino Teste"
+
+subtitle = " Processamento de Linguagens"
+
+authors = "Cláudia, Paulo, Tiago" 
+
+clube = "Futebol Clube do Porto"
+
+[jogadores]
+[jogadores.principais.guardaredes]
+nome = "Agustín Marchesín"
+nome = "Diogo Costa"
+
+
+[jogadores.principais.lateral]
+[lateral.Direito]
+nome = "Wilson Manafá"
+
+
+[lateral.Esquerdo]
+nome = "Zaidu Sanusi"
+
+
+[jogadores.principais.Defesa]
+nome = "Chancel Mbemba"
+nome = "Pepe"
+
+[jogadores.principais.meio-campo]
+nome = "Marko Grujić"
+nome = "Meio-Campista"
+nome= "Otavio Monteiro"
+
+[jogadores.principais.atacante]
+nome = "Mehdi Taremi"
+nome = "Evanilson"
+nome = "Toni Martínez"
+
+
+
+
+[ListaSocios]
+nome = "listasocios"
+cores = [azul, verde, vermelho]
+data = 26-05-2023
+horas = 12:50:00
+
+
+[socios]
+
+[socios.1]
+nome = "Maria das Cruzes Azevedo"
+idade = 45
+email = "Mariacruz@example.com"
+categoria = "Sócio"
+cota1 = 300
+dataadesao = 2022-04-23
+
+[socios.2]
+nome = "Ana Clara Santos"
+idade = 30
+email = "ana.santos@example.com"
+categoria = "Adepto"
+cota2 = 150
+dataadesao = 2023-01-15
+
+[socios.3]
+nome = "Pedro Sousa"
+idade = 52
+email = "pedro.sousa@example.com"
+categoria = "Sócio"
+cota3 = 300
+dataadesao = 2021-11-02
+
+[socios.4]
+nome = "Mariana Costa"
+idade = 37
+email = "mariana.costa@example.com"
+categoria = "Adepto"
+cota4 = 150
+dataadesao = 2022-09-18
+
+[socios.5]
+nome = "Tiago Ferreira"
+idade = 29
+email = "tiago.ferreira@example.com"
+categoria = "Sócio"
+cota5 = 300
+dataadesao = 2023-03-07
+
+[socios.6]
+nome = "Carolina Oliveira"
+idade = 41
+email = "carolina.oliveira@example.com"
+categoria = "Adepto"
+cota6 = 150
+dataadesao = 2022-06-30
+
+[socios.7]
+nome = "Ricardo Lima"
+idade = 33
+email = "ricardo.lima@example.com"
+categoria = "Sócio"
+cota7 = 300
+dataadesao = 2021-08-10
+
+[socios.8]
+nome = "Sara Mendes"
+idade = 48
+email = "sara.mendes@example.com"
+categoria = "Adepto"
+cota8 = 150
+dataadesao = 2023-02-11
+
+[socios.9]
+nome = "Hugo Fernandes"
+idade = 36
+email = "hugo.fernandes@example.com"
+categoria = "Sócio"
+cota9 = 300
+dataadesao = 2022-10-25
+
+[socios.10]
+nome = "Inês Santos"
+idade = 27
+email = "ines.santos@example.com"
+categoria = "Adepto"
+cota10 = 150
+dataadesao = 2023-04-05
+
+[socios.11]
+nome = "Gustavo Costa"
+idade = 39
+email = "gustavo.costa@example.com"
+categoria = "Sócio"
+cota11 = 300
+dataadesao = 2021-12-13
+
+[socios.12]
+nome = "Marta Sousa"
+idade = 43
+email = "marta.sousa@example.com"
+categoria = "Adepto"
+cota12 = 150
+dataadesao = 2022-07-22
+
+[socios.13]
+nome = "Luís Oliveira"
+idade = 31
+email = "luis.oliveira@example.com"
+categoria = "Sócio"
+cota13 = 300
+dataadesao = 2023-05-10
+
+
+[socios.14]
+nome = "Maria das Cruzes Azevedo"
+idade = 45
+email = "Mariacruz@example.com"
+categoria = "Sócio"
+300 = "cota1"
+dataadesao = 2022-04-23
+
+
+
+
+[socio.15.lugaranual]
+nome = "Miguel Pereira"
+idade = 34
+email = "miguel.pereira@example.com"
+categoria = "Sócio"
+cota14 = 300
+dataadesao = 2022-08-28

@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'APAR COMMENT DELIMITER FPAR KEY LISTVALUE PONTO VALUEtoml : title sections tabletitle : APAR KEY FPARtitle : KEY DELIMITER VALUEsections : sections section\n                | sectionsection : tabletitle conteudoconteudo : conteudo KEY DELIMITER VALUE \n                | KEY DELIMITER VALUE'
+_lr_signature = 'APAR COMMENT DELIMITER FPAR KEY LISTVALUE VALUEtoml : titles sections titles : title\n              | titles titletitle : KEY DELIMITER VALUEtabletitle : APAR KEY FPARsections : sections section\n                | sectionsection : tabletitle conteudo\n               | tabletitleconteudo : conteudo KEY DELIMITER VALUE \n                | KEY DELIMITER VALUE '
     
-_lr_action_items = {'KEY':([0,6,7,10,16,18,19,],[3,11,12,14,-2,-8,-7,]),'$end':([1,4,5,9,10,18,19,],[0,-1,-5,-4,-6,-8,-7,]),'APAR':([2,4,5,9,10,13,18,19,],[7,7,-5,-4,-6,-3,-8,-7,]),'DELIMITER':([3,11,14,],[8,15,17,]),'VALUE':([8,15,17,],[13,18,19,]),'FPAR':([12,],[16,]),}
+_lr_action_items = {'KEY':([0,2,3,6,8,9,12,15,18,20,21,],[4,4,-2,-3,13,14,16,-4,-5,-11,-10,]),'$end':([1,5,7,8,11,12,18,20,21,],[0,-1,-7,-9,-6,-8,-5,-11,-10,]),'APAR':([2,3,5,6,7,8,11,12,15,18,20,21,],[9,-2,9,-3,-7,-9,-6,-8,-4,-5,-11,-10,]),'DELIMITER':([4,13,16,],[10,17,19,]),'VALUE':([10,17,19,],[15,20,21,]),'FPAR':([14,],[18,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'toml':([0,],[1,]),'title':([0,],[2,]),'sections':([2,],[4,]),'section':([2,4,],[5,9,]),'tabletitle':([2,4,],[6,6,]),'conteudo':([6,],[10,]),}
+_lr_goto_items = {'toml':([0,],[1,]),'titles':([0,],[2,]),'title':([0,2,],[3,6,]),'sections':([2,],[5,]),'section':([2,5,],[7,11,]),'tabletitle':([2,5,],[8,8,]),'conteudo':([8,],[12,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,12 +27,15 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> toml","S'",1,None,None,None),
-  ('toml -> title sections','toml',2,'p_toml','tomlyacc.py',8),
-  ('tabletitle -> APAR KEY FPAR','tabletitle',3,'p_tabletitle','tomlyacc.py',15),
-  ('title -> KEY DELIMITER VALUE','title',3,'p_title','tomlyacc.py',29),
-  ('sections -> sections section','sections',2,'p_sections','tomlyacc.py',35),
-  ('sections -> section','sections',1,'p_sections','tomlyacc.py',36),
-  ('section -> tabletitle conteudo','section',2,'p_section','tomlyacc.py',48),
-  ('conteudo -> conteudo KEY DELIMITER VALUE','conteudo',4,'p_conteudo','tomlyacc.py',57),
-  ('conteudo -> KEY DELIMITER VALUE','conteudo',3,'p_conteudo','tomlyacc.py',58),
+  ('toml -> titles sections','toml',2,'p_toml','toml_yacc.py',14),
+  ('titles -> title','titles',1,'p_titles','toml_yacc.py',19),
+  ('titles -> titles title','titles',2,'p_titles','toml_yacc.py',20),
+  ('title -> KEY DELIMITER VALUE','title',3,'p_title','toml_yacc.py',30),
+  ('tabletitle -> APAR KEY FPAR','tabletitle',3,'p_tabletitle','toml_yacc.py',36),
+  ('sections -> sections section','sections',2,'p_sections','toml_yacc.py',48),
+  ('sections -> section','sections',1,'p_sections','toml_yacc.py',49),
+  ('section -> tabletitle conteudo','section',2,'p_section','toml_yacc.py',62),
+  ('section -> tabletitle','section',1,'p_section','toml_yacc.py',63),
+  ('conteudo -> conteudo KEY DELIMITER VALUE','conteudo',4,'p_conteudo','toml_yacc.py',88),
+  ('conteudo -> KEY DELIMITER VALUE','conteudo',3,'p_conteudo','toml_yacc.py',89),
 ]

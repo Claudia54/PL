@@ -1,1 +1,26 @@
-"{\n\"title\":\"TOML Example\"\n\"owner\":{\n\"name\":\"Tom Preston-Werner\"\n,\"date\":2010-04-23\n,\"time\":21:30:00\n},\"database\":{\n\"server\":\"192.168.1.1\"\n,\"ports\":[ 8001, 8001, 8002 ]\n,\"connection_max\":5000\n,\"enabled\":true\n},\"serversalpha\":{\n\"ip\":\"10.0.0.1\"\n,\"dc\":\"eqdc10\"\n},\"serversbeta\":{\n\"ip\":\"10.0.0.2\"\n,\"dc\":\"eqdc10\"\n}\n}"
+{
+      "title": "\"TOML Example\"",
+      "owner": {
+            "name": "\"Tom Preston-Werner\"",
+            "date": "2010-04-23",
+            "time": {
+                  "novo.velho": "21:30:00"
+            }
+      },
+      "database": {
+            "server": "\"192.168.1.1\"",
+            "ports": "[ 8001, 8001, 8002 ]",
+            "connection_max": "5000",
+            "enabled": "true"
+      },
+      "servers": {
+            "alpha": {
+                  "ip": "\"10.0.0\"",
+                  "dc": "\"eqdc10\""
+            },
+            "beta": {
+                  "ip": "\"10.0.0.2\"",
+                  "dc": "\"eqdc10\""
+            }
+      }
+}
