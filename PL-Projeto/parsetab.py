@@ -6,7 +6,7 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'APAR COMMENT DELIMITER FPAR KEY LISTVALUE VALUEtoml : titles sections titles : title\n              | titles titletitle : KEY DELIMITER VALUEtabletitle : APAR KEY FPAR\n                  | APAR APAR KEY FPAR FPARsections : sections section\n                | sectionsection : tabletitle conteudo\n               | tabletitleconteudo : conteudo KEY DELIMITER VALUE \n                | KEY DELIMITER VALUE '
+_lr_signature = 'APAR COMMENT DELIMITER FPAR KEY VALUEtoml : titles sections titles : title\n              | titles titletitle : KEY DELIMITER VALUEtabletitle : APAR KEY FPAR\n                  | APAR APAR KEY FPAR FPARsections : sections section\n                | sectionsection : tabletitle conteudo\n               | tabletitleconteudo : conteudo KEY DELIMITER VALUE \n                | KEY DELIMITER VALUE '
     
 _lr_action_items = {'KEY':([0,2,3,6,8,9,12,14,16,20,22,24,25,],[4,4,-2,-3,13,15,17,19,-4,-5,-12,-11,-6,]),'$end':([1,5,7,8,11,12,20,22,24,25,],[0,-1,-8,-10,-7,-9,-5,-12,-11,-6,]),'APAR':([2,3,5,6,7,8,9,11,12,16,20,22,24,25,],[9,-2,9,-3,-8,-10,14,-7,-9,-4,-5,-12,-11,-6,]),'DELIMITER':([4,13,17,],[10,18,21,]),'VALUE':([10,18,21,],[16,22,24,]),'FPAR':([15,19,23,],[20,23,25,]),}
 
@@ -37,6 +37,6 @@ _lr_productions = [
   ('sections -> section','sections',1,'p_sections','toml_yacc.py',47),
   ('section -> tabletitle conteudo','section',2,'p_section','toml_yacc.py',57),
   ('section -> tabletitle','section',1,'p_section','toml_yacc.py',58),
-  ('conteudo -> conteudo KEY DELIMITER VALUE','conteudo',4,'p_conteudo','toml_yacc.py',120),
-  ('conteudo -> KEY DELIMITER VALUE','conteudo',3,'p_conteudo','toml_yacc.py',121),
+  ('conteudo -> conteudo KEY DELIMITER VALUE','conteudo',4,'p_conteudo','toml_yacc.py',114),
+  ('conteudo -> KEY DELIMITER VALUE','conteudo',3,'p_conteudo','toml_yacc.py',115),
 ]

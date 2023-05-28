@@ -35,10 +35,6 @@ def t_error(t):
 # Criar o analisador léxico
 lexer = lex.lex()
 
-with open('tabelateste.toml', 'r') as arquivo: 
-    conteudo = arquivo.read()
-
-lexer.input(conteudo)
 
 
 
